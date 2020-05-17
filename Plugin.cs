@@ -22,7 +22,7 @@ namespace UtilityLibrary
             Events.OnMainMenu.Register(e =>
             {
                 UtilityLibrary.IsInMainMenu = e.Entering;
-            });
+            }, -1);
 
             return true;
         }

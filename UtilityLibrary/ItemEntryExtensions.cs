@@ -9,23 +9,51 @@ namespace UtilityLibrary
     public static partial class UtilityLibrary
     {
         /// <summary>
-        /// Tries to get the <see cref="ExtraEnchantment"/> on an armor.
+        /// Tries to get the base enchantment of an item. The base enchantment is different
+        /// from an extra enchantment in the way that the extra enchantment is what you apply
+        /// when enchanting the item using the enchantment table and the base enchantment being
+        /// the enchantment set in the actual form.
         /// </summary>
-        /// <param name="itemEntry">The armor</param>
-        /// <param name="enchantment">The <see cref="ExtraEnchantment"/> of the armor or null if returned false</param>
-        /// <returns>True if getting the armor enchantment was successful, false if not</returns>
-        public static bool TryGetArmorEnchantment([NotNull] this ExtraContainerChanges.ItemEntry itemEntry,
+        /// <param name="itemEntry">The item</param>
+        /// <param name="enchantment">The pointer to the base enchantment if return true, else <see cref="IntPtr.Zero"/></param>
+        /// <returns>True if getting the base enchantment was successful, false if not</returns>
+        public static bool TryGetBaseEnchantment([NotNull] this ExtraContainerChanges.ItemEntry itemEntry, out IntPtr enchantment)
+        {
+            enchantment = IntPtr.Zero;
+            var item = itemEntry.Template;
+            if (item == null)
+                return false;
+
+            var formPtr = item.Cast<TESForm>();
+            if (formPtr == IntPtr.Zero)
+                return false;
+
+            var baseEnchantmentPtr = Memory.InvokeCdecl(AddressLibrary.GetEnchantmentFunc, formPtr);
+            enchantment = baseEnchantmentPtr;
+            return baseEnchantmentPtr != IntPtr.Zero;
+        }
+
+        /// <summary>
+        /// Tries to get the extra enchantment of an item. The extra enchantment is different
+        /// from a base enchantment in the way that the extra enchantment is what you apply
+        /// when enchanting the item using the enchantment table and the base enchantment being
+        /// the enchantment set in the actual form.
+        /// </summary>
+        /// <param name="itemEntry">The item</param>
+        /// <param name="enchantment">The <see cref="ExtraEnchantment"/> of an item if return true</param>
+        /// <returns>True if getting the extra enchantment as successful, false if not</returns>
+        public static bool TryGetExtraEnchantment([NotNull] this ExtraContainerChanges.ItemEntry itemEntry,
             out ExtraEnchantment enchantment)
         {
             enchantment = null;
 
             var item = itemEntry.Template;
+            if (item == null)
+                return false;
 
             BSSimpleList<BSExtraDataList> extraData = itemEntry.ExtraData;
             if (extraData == null)
                 return false;
-
-            if (item.FormType != FormTypes.Armor) return false;
 
             ExtraEnchantment extraEnchantment = null;
 
@@ -49,60 +77,6 @@ namespace UtilityLibrary
         }
 
         /// <summary>
-        /// Tries to get the enchantment of a weapon. This returns an <see cref="IntPtr"/>
-        /// to the enchantment and not a <see cref="ExtraEnchantment"/>.
-        /// </summary>
-        /// <param name="itemEntry">The Weapon</param>
-        /// <param name="enchantment">The <see cref="IntPtr"/> of the enchantment if returned true</param>
-        /// <returns>True if getting the weapon enchantment was successful, false if not</returns>
-        public static bool TryGetWeaponEnchantment([NotNull] this ExtraContainerChanges.ItemEntry itemEntry,
-            out IntPtr enchantment)
-        {
-            enchantment = IntPtr.Zero;
-            var item = itemEntry.Template;
-
-            BSSimpleList<BSExtraDataList> extraData = itemEntry.ExtraData;
-            if (extraData == null)
-                return false;
-
-            if (item.FormType != FormTypes.Weapon) return false;
-
-            var enchantmentPtr = IntPtr.Zero;
-
-            extraData.Where(x => x != null).Do(x =>
-            {
-                var ptr = x.Cast<BSExtraDataList>();
-                if (ptr == IntPtr.Zero)
-                    return;
-
-                var formPtr = item.Cast<TESForm>();
-                if (formPtr == IntPtr.Zero)
-                    return;
-
-                enchantmentPtr = Memory.InvokeCdecl(AddressLibrary.GetEnchantmentFunc, formPtr, ptr);
-            });
-
-            enchantment = enchantmentPtr;
-            return enchantmentPtr != IntPtr.Zero;
-        }
-
-        /// <summary>
-        /// Checks if an <see cref="ExtraContainerChanges.ItemEntry"/> is enchanted or not.
-        /// Only works for items of form type <see cref="FormTypes.Armor"/> and <see cref="FormTypes.Weapon"/>.
-        /// </summary>
-        /// <param name="itemEntry">The Item</param>
-        /// <returns><c>true</c> if enchanted, <c>false</c> if not</returns>
-        public static bool IsEnchanted([NotNull] this ExtraContainerChanges.ItemEntry itemEntry)
-        {
-            var item = itemEntry.Template;
-
-            if (item.FormType == FormTypes.Armor)
-                return itemEntry.TryGetArmorEnchantment(out _);
-
-            return item.FormType == FormTypes.Weapon && itemEntry.TryGetWeaponEnchantment(out _);
-        }
-
-        /// <summary>
         /// Checks if the item has the given enchantment. Only works with weapons and
         /// armors.
         /// </summary>
@@ -116,21 +90,17 @@ namespace UtilityLibrary
             if (item == null)
                 return false;
 
-            if (item.FormType == FormTypes.Armor)
+            if (itemEntry.TryGetBaseEnchantment(out var baseEnchantment))
             {
-                if (!itemEntry.TryGetArmorEnchantment(out var armorEnchantment))
-                    return false;
-
-                return armorEnchantment.Enchantment == enchantment;
+                return enchantment.Address == baseEnchantment;
             }
 
-            if (item.FormType != FormTypes.Weapon) return false;
+            if (itemEntry.TryGetExtraEnchantment(out var extraEnchantment))
+            {
+                return extraEnchantment.Enchantment == enchantment;
+            }
 
-            if (!itemEntry.TryGetWeaponEnchantment(out var weaponEnchantment))
-                return false;
-
-            return weaponEnchantment == enchantment.Address;
-
+            return false;
         }
     }
 }

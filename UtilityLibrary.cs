@@ -15,5 +15,20 @@ namespace UtilityLibrary
         /// the game is not paused.
         /// </summary>
         public static bool IsInGame => !IsInMainMenu && Main.Instance != null && !Main.Instance.IsGamePaused;
+
+        public static bool TryGetFormFromFile<T>(uint formID, string fileName, out T value)
+        {
+            value = default;
+
+            var form = TESForm.LookupFormFromFile(formID, fileName);
+            if (form == null)
+                return false;
+
+            if (!(form is T tForm)) return false;
+
+            value = tForm;
+            return true;
+
+        }
     }
 }
