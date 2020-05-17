@@ -17,6 +17,8 @@ namespace UtilityLibrary
 
         protected override bool Initialize(bool loadedAny)
         {
+            AddressLibrary.GetEnchantmentFunc = NetScriptFramework.Main.GameInfo.GetAddressOf(14411);
+
             Events.OnMainMenu.Register(e =>
             {
                 UtilityLibrary.IsInMainMenu = e.Entering;
