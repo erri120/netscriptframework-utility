@@ -104,12 +104,12 @@ namespace UtilityLibrary
         }
 
         /// <summary>
-        /// Enum for Soul Gem types. Do note that
-        /// <see cref="None"/> can mean multiple things
-        /// as you can get <c>0</c> if something failed.
+        /// Enum for the type of soul in a soul gem.
+        /// Do note that <see cref="None"/> means there is
+        /// no soul in a soul gem or something went wrong.
         /// <see cref="Grand"/> is also used by black soul gems.
         /// </summary>
-        public enum SoulGemType : byte
+        public enum SoulType : byte
         {
             None = 0,
             Petty = 1,
@@ -119,9 +119,15 @@ namespace UtilityLibrary
             Grand = 5
         }
 
-        public static byte GetSoulGemType([NotNull] this ExtraContainerChanges.ItemEntry itemEntry)
+        /// <summary>
+        /// Get the type of soul in a soul gem. Will return <see cref="SoulType.None"/>
+        /// if there is no soul in the soul gem.
+        /// </summary>
+        /// <param name="itemEntry">The soul gem</param>
+        /// <returns>The soul in the given soul gem</returns>
+        public static SoulType GetSoulType([NotNull] this ExtraContainerChanges.ItemEntry itemEntry)
         {
-            byte result = 0;
+            SoulType result = 0;
 
             var item = itemEntry.Template;
             if (item == null)
@@ -139,7 +145,7 @@ namespace UtilityLibrary
 
             BSSimpleList<BSExtraDataList> extraData = itemEntry.ExtraData;
             if (extraData == null)
-                return baseSoul;
+                return (SoulType)baseSoul;
 
             extraData.Where(x => x != null).Do(x =>
             {
@@ -151,7 +157,7 @@ namespace UtilityLibrary
                 if (soul == 0)
                     soul = baseSoul;
 
-                result = soul;
+                result = (SoulType)soul;
             });
 
             return result;
