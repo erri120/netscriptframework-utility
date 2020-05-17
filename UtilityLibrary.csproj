@@ -72,6 +72,7 @@
   <ItemGroup>
     <Compile Include="AddressLibrary.cs" />
     <Compile Include="Events.cs" />
+    <Compile Include="Events\OnCraftingEvent.cs" />
     <Compile Include="Events\OnTemperingEvent.cs" />
     <Compile Include="Plugin.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

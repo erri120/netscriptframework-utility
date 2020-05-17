@@ -28,7 +28,8 @@ namespace UtilityLibrary
             AddressLibrary.Disenchanting = Main.GameInfo.GetAddressOf(50459, 0xBA, 6);
             AddressLibrary.Alchemy = Main.GameInfo.GetAddressOf(50449, 0x207, 6);
 
-            Events.OnTempering = new EventHook<Events.TemperingEventArgs>(EventHookFlags.None, "smithing.tempering", Events.TemperingEventHookParameters);
+            Events.OnTempering = new EventHook<Events.TemperingEventArgs>(EventHookFlags.None, "utility-library.events.tempering", Events.TemperingEventHookParameters);
+            Events.OnCrafting = new EventHook<Events.CraftingEventArgs>(EventHookFlags.None, "utility-library.events.crafting", Events.CraftingEventHookParameters);
 
             NetScriptFramework.SkyrimSE.Events.OnMainMenu.Register(e =>
             {
