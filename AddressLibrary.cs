@@ -59,7 +59,7 @@ namespace UtilityLibrary
         /// <see cref="ExtraContainerChanges.ItemEntry.ExtraData"/>.
         /// </para>
         ///
-        /// <para>See <see cref="UtilityLibrary.SoulGemType"/> for all return types.</para>
+        /// <para>See <see cref="UtilityLibrary.SoulType"/> for all return types.</para>
         /// </summary>
         public static IntPtr GetSoulTypeFunc { get; internal set; }
 

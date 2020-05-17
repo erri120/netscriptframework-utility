@@ -13,6 +13,7 @@ namespace UtilityLibrary
         /// from an extra enchantment in the way that the extra enchantment is what you apply
         /// when enchanting the item using the enchantment table and the base enchantment being
         /// the enchantment set in the actual form.
+        /// <para>THIS WILL CRASH YOUR GAME IF THE ITEM DOES NOT HAVE AN BASE ENCHANTMENT!</para>
         /// </summary>
         /// <param name="itemEntry">The item</param>
         /// <param name="enchantment">The pointer to the base enchantment if return true, else <see cref="IntPtr.Zero"/></param>
@@ -74,33 +75,6 @@ namespace UtilityLibrary
 
             enchantment = extraEnchantment;
             return extraEnchantment != null;
-        }
-
-        /// <summary>
-        /// Checks if the item has the given enchantment. Only works with weapons and
-        /// armors.
-        /// </summary>
-        /// <param name="itemEntry">The Item</param>
-        /// <param name="enchantment">The Enchantment</param>
-        /// <returns>True if the item has the enchantment, false if not</returns>
-        public static bool HasEnchantment([NotNull] this ExtraContainerChanges.ItemEntry itemEntry,
-            EnchantmentItem enchantment)
-        {
-            var item = itemEntry.Template;
-            if (item == null)
-                return false;
-
-            if (itemEntry.TryGetBaseEnchantment(out var baseEnchantment))
-            {
-                return enchantment.Address == baseEnchantment;
-            }
-
-            if (itemEntry.TryGetExtraEnchantment(out var extraEnchantment))
-            {
-                return extraEnchantment.Enchantment == enchantment;
-            }
-
-            return false;
         }
 
         /// <summary>

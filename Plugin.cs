@@ -22,12 +22,11 @@ namespace UtilityLibrary
             AddressLibrary.GetRealHoursPassedFunc = Main.GameInfo.GetAddressOf(54842);
             AddressLibrary.GetSoulTypeFunc = Main.GameInfo.GetAddressOf(11561);
 
-            AddressLibrary.SmithingTempering = Main.GameInfo.GetAddressOf(50477, 0x115, 6);//, "FF 90 B8 07 00 00");
-            /*AddressLibrary.SmithingCrafting = Main.GameInfo.GetAddressOf(50476, 0x91, 6, "FF 90 B8 07 00 00");
-            AddressLibrary.Enchanting = Main.GameInfo.GetAddressOf(50450, 0x275, 6, "FF 90 B8 07 00 00");
-            AddressLibrary.Disenchanting = Main.GameInfo.GetAddressOf(50459, 0xBA, 6, "FF 90 B8 07 00 00");
-            AddressLibrary.Alchemy = Main.GameInfo.GetAddressOf(50449, 0x207, 6, "FF 90 B8 07 00 00");
-            */
+            AddressLibrary.SmithingTempering = Main.GameInfo.GetAddressOf(50477, 0x115, 6);
+            AddressLibrary.SmithingCrafting = Main.GameInfo.GetAddressOf(50476, 0x91, 6);
+            AddressLibrary.Enchanting = Main.GameInfo.GetAddressOf(50450, 0x275, 6);
+            AddressLibrary.Disenchanting = Main.GameInfo.GetAddressOf(50459, 0xBA, 6);
+            AddressLibrary.Alchemy = Main.GameInfo.GetAddressOf(50449, 0x207, 6);
 
             Events.OnTempering = new EventHook<Events.TemperingEventArgs>(EventHookFlags.None, "smithing.tempering", Events.TemperingEventHookParameters);
 
