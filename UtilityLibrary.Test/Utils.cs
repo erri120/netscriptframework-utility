@@ -11,7 +11,7 @@ namespace UtilityLibrary.Test
         static Utils()
         {
             //optional to also use LogFileFlags.IncludeTimestampInFileName
-            LogFile = new LogFile(global::UtilityLibrary.Plugin.PluginName, LogFileFlags.AppendFile | LogFileFlags.AutoFlush | LogFileFlags.IncludeTimestampInLine);
+            LogFile = new LogFile(Plugin.PluginName, LogFileFlags.AppendFile | LogFileFlags.AutoFlush | LogFileFlags.IncludeTimestampInLine);
         }
 
         internal static void Log(string s)

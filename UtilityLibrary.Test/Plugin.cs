@@ -20,16 +20,21 @@
             if (!utilityLibrary.IsInitialized) return false;
             if (!loadedAny) return false;
 
-            Events.OnCrafting.Register(e =>
-            {
-                Utils.Log($"Crafting an item: {e.TemperForm.CreatedItem.Name}, getting {e.XP} XP");
-            });
-
             Events.OnTempering.Register(e =>
             {
                 Utils.Log(
                     $"Tempering {e.Item.Name}, old quality: {e.OldQuality}, new quality: {e.NewQuality}, getting {e.XP} XP");
             });
+
+            Events.OnEnchanting.Register(e =>
+            {
+                Utils.Log($"Enchanting {e.Item.Name}, soul gem: {e.SoulGem.Name}, xp: {e.XP}");
+            });
+
+            /*Events.OnCrafting.Register(e =>
+            {
+                Utils.Log($"Crafting an item: {e.TemperForm.CreatedItem.Name}, getting {e.XP} XP");
+            });*/
 
             return true;
         }
