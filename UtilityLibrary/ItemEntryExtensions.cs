@@ -102,5 +102,59 @@ namespace UtilityLibrary
 
             return false;
         }
+
+        /// <summary>
+        /// Enum for Soul Gem types. Do note that
+        /// <see cref="None"/> can mean multiple things
+        /// as you can get <c>0</c> if something failed.
+        /// <see cref="Grand"/> is also used by black soul gems.
+        /// </summary>
+        public enum SoulGemType : byte
+        {
+            None = 0,
+            Petty = 1,
+            Lesser = 2,
+            Common = 3,
+            Greater = 4,
+            Grand = 5
+        }
+
+        public static byte GetSoulGemType([NotNull] this ExtraContainerChanges.ItemEntry itemEntry)
+        {
+            byte result = 0;
+
+            var item = itemEntry.Template;
+            if (item == null)
+                return result;
+
+            var formPtr = item.Cast<TESForm>();
+            if (formPtr == IntPtr.Zero)
+                return result;
+
+
+            if (item.FormType != FormTypes.SoulGem)
+                return result;
+
+            var baseSoul = Memory.ReadUInt8(formPtr + 0x108);
+
+            BSSimpleList<BSExtraDataList> extraData = itemEntry.ExtraData;
+            if (extraData == null)
+                return baseSoul;
+
+            extraData.Where(x => x != null).Do(x =>
+            {
+                var ptr = x.Cast<BSExtraDataList>();
+                if (ptr == IntPtr.Zero)
+                    return;
+
+                var soul = Memory.InvokeCdecl(AddressLibrary.GetSoulTypeFunc, ptr).ToUInt8();
+                if (soul == 0)
+                    soul = baseSoul;
+
+                result = soul;
+            });
+
+            return result;
+        }
     }
 }

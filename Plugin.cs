@@ -18,6 +18,9 @@ namespace UtilityLibrary
         protected override bool Initialize(bool loadedAny)
         {
             AddressLibrary.GetEnchantmentFunc = NetScriptFramework.Main.GameInfo.GetAddressOf(14411);
+            AddressLibrary.GetCurrentGameTimeFunc = NetScriptFramework.Main.GameInfo.GetAddressOf(56475);
+            AddressLibrary.GetRealHoursPassedFunc = NetScriptFramework.Main.GameInfo.GetAddressOf(54842);
+            AddressLibrary.GetSoulTypeFunc = NetScriptFramework.Main.GameInfo.GetAddressOf(11561);
 
             Events.OnMainMenu.Register(e =>
             {
