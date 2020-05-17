@@ -5,6 +5,8 @@ VisualStudioVersion = 16.0.30104.148
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UtilityLibrary", "UtilityLibrary.csproj", "{D76AB2C4-39E1-4097-9C95-B41EEF91BE3C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UtilityLibrary.Test", "..\UtilityLibrary.Test\UtilityLibrary.Test.csproj", "{C41E4E5E-AB08-4813-8185-9C6536746443}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -15,6 +17,10 @@ Global
 		{D76AB2C4-39E1-4097-9C95-B41EEF91BE3C}.Debug|x64.Build.0 = Debug|x64
 		{D76AB2C4-39E1-4097-9C95-B41EEF91BE3C}.Release|x64.ActiveCfg = Release|x64
 		{D76AB2C4-39E1-4097-9C95-B41EEF91BE3C}.Release|x64.Build.0 = Release|x64
+		{C41E4E5E-AB08-4813-8185-9C6536746443}.Debug|x64.ActiveCfg = Debug|x64
+		{C41E4E5E-AB08-4813-8185-9C6536746443}.Debug|x64.Build.0 = Debug|x64
+		{C41E4E5E-AB08-4813-8185-9C6536746443}.Release|x64.ActiveCfg = Release|x64
+		{C41E4E5E-AB08-4813-8185-9C6536746443}.Release|x64.Build.0 = Release|x64
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
