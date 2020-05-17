@@ -15,13 +15,16 @@ namespace UtilityLibrary
         internal static EventHookParameters<EnchantingEventArgs> EnchantingEventHookParameters =>
             new EventHookParameters<EnchantingEventArgs>(AddressLibrary.Enchanting, 6, 6, "FF 90 B8 07 00 00", ctx =>
             {
-                var args = new EnchantingEventArgs
-                {
-                    Item = MemoryObject.FromAddress<TESForm>(Memory.ReadPointer(ctx.R15)),
-                    SoulGem = MemoryObject.FromAddress<TESForm>(
-                        Memory.ReadPointer(Memory.ReadPointer(ctx.BX + 0x18))),
-                    XP = ctx.XMM2f
-                };
+                var args = new EnchantingEventArgs();
+
+                var item = MemoryObject.FromAddress<TESForm>(Memory.ReadPointer(ctx.R15));
+                var soulGem = MemoryObject.FromAddress<TESForm>(
+                    Memory.ReadPointer(Memory.ReadPointer(ctx.BX + 0x18)));
+                var xp = ctx.XMM2f;
+
+                args.Item = item;
+                args.SoulGem = soulGem;
+                args.XP = xp;
 
                 return args;
             }, (ctx, args) =>

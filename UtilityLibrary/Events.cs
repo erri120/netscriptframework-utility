@@ -12,5 +12,7 @@ namespace UtilityLibrary
         public static Event<CraftingEventArgs> OnCrafting { get; internal set; }
 
         public static Event<EnchantingEventArgs> OnEnchanting { get; internal set; }
+
+        public static Event<DisenchantingEventArgs> OnDisenchanting { get; internal set; }
     }
 }

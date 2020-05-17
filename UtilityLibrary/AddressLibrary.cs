@@ -67,6 +67,7 @@ namespace UtilityLibrary
         public static IntPtr SmithingCrafting { get; internal set; }
         public static IntPtr Enchanting { get; internal set; }
         public static IntPtr Disenchanting { get; internal set; }
+        public static IntPtr GetDisenchantmentValue { get; internal set; }
         public static IntPtr Alchemy { get; internal set; }
     }
 }

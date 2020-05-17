@@ -31,6 +31,12 @@
                 Utils.Log($"Enchanting {e.Item.Name}, soul gem: {e.SoulGem.Name}, xp: {e.XP}");
             });
 
+            Events.OnDisenchanting.Register(e =>
+            {
+                Utils.Log(
+                    $"Disenchanting {e.Item.Name}, enchantment: {e.Enchantment}, value: {e.EnchantmentValue} xp: {e.XP}");
+            });
+
             /*Events.OnCrafting.Register(e =>
             {
                 Utils.Log($"Crafting an item: {e.TemperForm.CreatedItem.Name}, getting {e.XP} XP");
