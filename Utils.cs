@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using NetScriptFramework.Tools;
 
-namespace PluginTemplate
+namespace UtilityLibrary
 {
-    public static class Utils
+    internal static class Utils
     {
         private static readonly LogFile LogFile;
 
@@ -14,14 +14,14 @@ namespace PluginTemplate
             LogFile = new LogFile(Plugin.PluginName, LogFileFlags.AppendFile | LogFileFlags.AutoFlush | LogFileFlags.IncludeTimestampInLine);
         }
 
-        public static void Log(string s)
+        internal static void Log(string s)
         {
             LogFile.AppendLine(s);
             //uncomment if you want to display the log message on the HUD, useful when for debugging
             //NetScriptFramework.SkyrimSE.MenuManager.ShowHUDMessage(s, null, true);
         }
 
-        public static void Do<T>(this IEnumerable<T> enumerable, Action<T> action)
+        internal static void Do<T>(this IEnumerable<T> enumerable, Action<T> action)
         {
             foreach (var item in enumerable) action(item);
         }

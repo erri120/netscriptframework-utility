@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("PluginTemplate")]
-[assembly: AssemblyDescription("A Template for NetScriptFramework Plugins")]
+[assembly: AssemblyTitle("Utility Library")]
+[assembly: AssemblyDescription("A Library with utility functions for NetScriptFramework Plugins")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("erri120")]
-[assembly: AssemblyProduct("PluginTemplate")]
+[assembly: AssemblyProduct("UtilityLibrary")]
 [assembly: AssemblyCopyright("Copyright © erri120 2020")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
