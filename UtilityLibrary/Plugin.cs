@@ -25,6 +25,7 @@ namespace UtilityLibrary
             AddressLibrary.GetDisenchantmentValue = Main.GameInfo.GetAddressOf(11213);
             AddressLibrary.AlchemyFunc1 = Main.GameInfo.GetAddressOf(50424);
             AddressLibrary.AlchemyFunc2 = Main.GameInfo.GetAddressOf(50463);
+            AddressLibrary.PlaySoundFunc = Main.GameInfo.GetAddressOf(52054);
 
             //events addresses
             AddressLibrary.SmithingTempering = Main.GameInfo.GetAddressOf(50477, 0x115, 6);

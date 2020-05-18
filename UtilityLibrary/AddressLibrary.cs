@@ -6,6 +6,8 @@ namespace UtilityLibrary
 {
     public static class AddressLibrary
     {
+        #region Functions
+
         /// <summary>
         /// <para>Use <see cref="Memory.InvokeCdecl"/></para>
         ///
@@ -64,6 +66,23 @@ namespace UtilityLibrary
         public static IntPtr GetSoulTypeFunc { get; internal set; }
 
         /// <summary>
+        /// <para>Use <see cref="Memory.InvokeCdecl"/></para>
+        ///
+        /// <para>
+        /// This function will play a sound.
+        /// </para>
+        ///
+        /// <para>
+        /// Input is a pointer to the sound to be played.
+        /// </para>
+        /// </summary>
+        public static IntPtr PlaySoundFunc { get; internal set; }
+
+        #endregion
+
+        #region Events
+
+        /// <summary>
         /// Address for <see cref="Events.OnTempering"/>
         /// </summary>
         internal static IntPtr SmithingTempering { get; set; }
@@ -108,6 +127,11 @@ namespace UtilityLibrary
         /// </summary>
         internal static IntPtr AlchemyFunc2 { get; set; }
 
+        /// <summary>
+        /// Address fro <see cref="Events.OnApplyPoison"/>
+        /// </summary>
         internal static IntPtr ApplyPoison { get; set; }
+
+        #endregion
     }
 }

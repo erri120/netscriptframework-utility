@@ -1,4 +1,5 @@
-﻿using NetScriptFramework;
+﻿using System;
+using NetScriptFramework;
 using NetScriptFramework.SkyrimSE;
 using Main = NetScriptFramework.SkyrimSE.Main;
 
@@ -59,6 +60,15 @@ namespace UtilityLibrary
             value = tForm;
             return true;
 
+        }
+
+        /// <summary>
+        /// Plays the given sound
+        /// </summary>
+        /// <param name="sound">Pointer to the sound</param>
+        public static void PlaySound(IntPtr sound)
+        {
+            Memory.InvokeCdecl(AddressLibrary.PlaySoundFunc, sound);
         }
     }
 }
