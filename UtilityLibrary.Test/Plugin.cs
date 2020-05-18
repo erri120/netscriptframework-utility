@@ -1,4 +1,7 @@
-﻿namespace UtilityLibrary.Example
+﻿using NetScriptFramework;
+using NetScriptFramework.SkyrimSE;
+
+namespace UtilityLibrary.Example
 {
     public class Plugin : NetScriptFramework.Plugin
     {
@@ -44,6 +47,25 @@
                 {
                     Utils.Log($"Ingredient {i}: {e.Ingredients[i].Name}");
                 }
+            });
+
+            /*var ptr = NetScriptFramework.Main.GameInfo.GetAddressOf(39406, 0x89, 0, "E8 ? ? ? ? 48 85 C0");
+            Memory.WriteHook(new HookParameters
+            {
+                Address = ptr,
+                IncludeLength = 0,
+                ReplaceLength = 0x13,
+                Before = ctx =>
+                {
+                    var item = MemoryObject.FromAddress<ExtraContainerChanges.ItemEntry>(ctx.CX);
+                    if(item != null)
+                        Utils.Log($"Item: {item.Template?.Name}");
+                }
+            });*/
+
+            Events.OnApplyPoison.Register(e =>
+            {
+                Utils.Log($"Item: {e.ItemEntry.Template?.Name}");
             });
 
             /*Events.OnCrafting.Register(e =>

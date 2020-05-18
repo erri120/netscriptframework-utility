@@ -98,7 +98,16 @@ namespace UtilityLibrary
         /// </summary>
         internal static IntPtr Alchemy { get; set; }
 
+        /// <summary>
+        /// Used in <see cref="Events.OnAlchemy"/>
+        /// </summary>
         internal static IntPtr AlchemyFunc1 { get; set; }
+
+        /// <summary>
+        /// Used in <see cref="Events.OnAlchemy"/>
+        /// </summary>
         internal static IntPtr AlchemyFunc2 { get; set; }
+
+        internal static IntPtr ApplyPoison { get; set; }
     }
 }
