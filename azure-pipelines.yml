@@ -7,7 +7,7 @@ trigger:
 - master
 
 pool:
-  vmImage: 'ubuntu-latest'
+  vmImage: 'windows-latest'
 
 variables:
   solution: 'Utility Library.sln'
@@ -20,6 +20,20 @@ steps:
 - task: NuGetCommand@2
   inputs:
     restoreSolution: '$(solution)'
+
+- task: CmdLine@2
+  inputs:
+    script: 'mkdir $(System.DefaultWorkingDirectory)\lib'
+
+- task: DownloadSecureFile@1
+  inputs:
+    secureFile: '8d8fc771-9f32-49a5-a417-5c665d3fe605'
+
+- task: ExtractFiles@1
+  inputs:
+    archiveFilePatterns: '8d8fc771-9f32-49a5-a417-5c665d3fe605'
+    destinationFolder: '$(System.DefaultWorkingDirectory)/lib'
+    cleanDestinationFolder: false
 
 - task: VSBuild@1
   inputs:

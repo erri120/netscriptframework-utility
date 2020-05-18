@@ -35,10 +35,10 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="NetScriptFramework">
-      <HintPath>..\..\NetScriptFramework\NetScriptFramework.dll</HintPath>
+      <HintPath>$(SolutionDir)\lib\NetScriptFramework\NetScriptFramework.dll</HintPath>
     </Reference>
     <Reference Include="NetScriptFramework.SkyrimSE">
-      <HintPath>..\..\NetScriptFramework\NetScriptFramework.SkyrimSE.dll</HintPath>
+      <HintPath>$(SolutionDir)\lib\NetScriptFramework\NetScriptFramework.SkyrimSE.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
