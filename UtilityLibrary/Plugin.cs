@@ -1,6 +1,5 @@
-﻿using System.IO;
-using System.Linq;
-using NetScriptFramework;
+﻿using NetScriptFramework;
+#pragma warning disable 1591
 
 namespace UtilityLibrary
 {

@@ -79,17 +79,32 @@ namespace UtilityLibrary
 
         /// <summary>
         /// Enum for the type of soul in a soul gem.
-        /// Do note that <see cref="None"/> means there is
-        /// no soul in a soul gem or something went wrong.
-        /// <see cref="Grand"/> is also used by black soul gems.
         /// </summary>
         public enum SoulType : byte
         {
+            /// <summary>
+            /// None meaning no soul or something went wrong
+            /// </summary>
             None = 0,
+            /// <summary>
+            /// Petty soul
+            /// </summary>
             Petty = 1,
+            /// <summary>
+            /// Lesser soul
+            /// </summary>
             Lesser = 2,
+            /// <summary>
+            /// Common soul
+            /// </summary>
             Common = 3,
+            /// <summary>
+            /// Greater soul
+            /// </summary>
             Greater = 4,
+            /// <summary>
+            /// Grand soul, also used in black soul gems
+            /// </summary>
             Grand = 5
         }
 

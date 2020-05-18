@@ -6,6 +6,9 @@ namespace UtilityLibrary
 {
     public static partial class Events
     {
+        /// <summary>
+        /// Arguments for the <see cref="OnDisenchanting"/> event
+        /// </summary>
         public class DisenchantingEventArgs : HookedEventArgs
         {
             /// <summary>

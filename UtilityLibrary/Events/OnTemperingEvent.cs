@@ -6,6 +6,9 @@ namespace UtilityLibrary
 {
     public partial class Events
     {
+        /// <summary>
+        /// Arguments for the <see cref="OnTempering"/> event
+        /// </summary>
         public class TemperingEventArgs : HookedEventArgs
         {
             /// <summary>

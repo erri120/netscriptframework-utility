@@ -5,6 +5,9 @@ namespace UtilityLibrary
 {
     public static partial class Events
     {
+        /// <summary>
+        /// Arguments for the <see cref="OnApplyPoison"/> event
+        /// </summary>
         public class ApplyPoisonEventArgs : HookedEventArgs
         {
             /// <summary>

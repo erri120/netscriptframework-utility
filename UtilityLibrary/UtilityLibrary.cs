@@ -5,6 +5,9 @@ using Main = NetScriptFramework.SkyrimSE.Main;
 
 namespace UtilityLibrary
 {
+    /// <summary>
+    /// Library containing utility functions
+    /// </summary>
     public static partial class UtilityLibrary
     {
         /// <summary>

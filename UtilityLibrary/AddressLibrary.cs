@@ -4,6 +4,10 @@ using NetScriptFramework.SkyrimSE;
 
 namespace UtilityLibrary
 {
+    /// <summary>
+    /// Library with useful addresses you can use so you don't have to do some
+    /// reverse engineering.
+    /// </summary>
     public static class AddressLibrary
     {
         #region Functions

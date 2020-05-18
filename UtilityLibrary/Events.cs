@@ -2,6 +2,9 @@
 
 namespace UtilityLibrary
 {
+    /// <summary>
+    /// Additional Events that complement the already existing <see cref="NetScriptFramework.SkyrimSE.Events"/>
+    /// </summary>
     public static partial class Events
     {
         /// <summary>
