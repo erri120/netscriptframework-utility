@@ -68,7 +68,7 @@ steps:
     packDestination: '$(Build.ArtifactStagingDirectory)/NuGet/'
     versioningScheme: 'off'
     includeSymbols: true
-    buildProperties: '-properties Platform=x64'
+    buildProperties: 'Platform=$(buildPlatform)'
 
 - task: PublishBuildArtifacts@1
   condition: eq(variables['Build.SourceBranch'], 'refs/heads/master')
