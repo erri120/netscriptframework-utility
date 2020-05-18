@@ -39,8 +39,11 @@ steps:
 - task: VSBuild@1
   inputs:
     solution: '$(solution)'
+    msbuildArgs: '/p:PreBuildEvent=;PostBuildEvent='
     platform: '$(buildPlatform)'
     configuration: '$(buildConfiguration)'
+    restoreNugetPackages: true
+    msbuildArchitecture: 'x64'
 
 - task: CopyFiles@2
   condition: eq(variables['Build.SourceBranch'], 'refs/heads/master')
