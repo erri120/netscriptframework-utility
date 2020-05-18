@@ -1,6 +1,4 @@
-﻿using NetScriptFramework;
-using NetScriptFramework.SkyrimSE;
-using Main = NetScriptFramework.Main;
+﻿using Main = NetScriptFramework.Main;
 
 namespace UtilityLibrary.Example
 {

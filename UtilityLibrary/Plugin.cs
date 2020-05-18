@@ -1,4 +1,6 @@
-﻿using NetScriptFramework;
+﻿using System.IO;
+using System.Linq;
+using NetScriptFramework;
 
 namespace UtilityLibrary
 {
@@ -28,11 +30,11 @@ namespace UtilityLibrary
             AddressLibrary.PlaySoundFunc = Main.GameInfo.GetAddressOf(52054);
 
             //events addresses
-            AddressLibrary.SmithingTempering = Main.GameInfo.GetAddressOf(50477, 0x115, 6);
-            AddressLibrary.SmithingCrafting = Main.GameInfo.GetAddressOf(50476, 0x91, 6);
-            AddressLibrary.Enchanting = Main.GameInfo.GetAddressOf(50450, 0x275, 6);
-            AddressLibrary.Disenchanting = Main.GameInfo.GetAddressOf(50459, 0xBA, 6);
-            AddressLibrary.Alchemy = Main.GameInfo.GetAddressOf(50449, 0x207, 6);
+            AddressLibrary.SmithingTempering = Main.GameInfo.GetAddressOf(50477, 0x115, 0, "FF 90 B8 07 00 00");
+            //AddressLibrary.SmithingCrafting = Main.GameInfo.GetAddressOf(50476, 0x91, 0, "FF 90 B8 07 00 00");
+            AddressLibrary.Enchanting = Main.GameInfo.GetAddressOf(50450, 0x275, 0, "FF 90 B8 07 00 00");
+            AddressLibrary.Disenchanting = Main.GameInfo.GetAddressOf(50459, 0xBA, 0, "FF 90 B8 07 00 00");
+            AddressLibrary.Alchemy = Main.GameInfo.GetAddressOf(50449, 0x207, 0, "FF 90 B8 07 00 00");
             AddressLibrary.ApplyPoison = Main.GameInfo.GetAddressOf(39406, 0x89, 0, "E8 ? ? ? ? 48 85 C0");
 
             //events
