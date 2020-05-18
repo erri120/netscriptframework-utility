@@ -37,6 +37,15 @@
                     $"Disenchanting {e.Item.Name}, enchantment: {e.Enchantment}, value: {e.EnchantmentValue} xp: {e.XP}");
             });
 
+            Events.OnAlchemy.Register(e =>
+            {
+                Utils.Log($"Creating potion: {e.Potion.Name} with ingredients:");
+                for (var i = 0; i < e.Ingredients.Count; i++)
+                {
+                    Utils.Log($"Ingredient {i}: {e.Ingredients[i].Name}");
+                }
+            });
+
             /*Events.OnCrafting.Register(e =>
             {
                 Utils.Log($"Crafting an item: {e.TemperForm.CreatedItem.Name}, getting {e.XP} XP");

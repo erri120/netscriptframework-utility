@@ -55,6 +55,7 @@
   <ItemGroup>
     <Compile Include="AddressLibrary.cs" />
     <Compile Include="Events.cs" />
+    <Compile Include="Events\OnAlchemy.cs" />
     <Compile Include="Events\OnCraftingEvent.cs" />
     <Compile Include="Events\OnDisenchantingEvent.cs" />
     <Compile Include="Events\OnEnchantingEvent.cs" />

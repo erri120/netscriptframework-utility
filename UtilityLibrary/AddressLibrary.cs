@@ -94,8 +94,11 @@ namespace UtilityLibrary
         internal static IntPtr GetDisenchantmentValue { get; set; }
 
         /// <summary>
-        /// 
+        /// Address for <see cref="Events.OnAlchemy"/>
         /// </summary>
         internal static IntPtr Alchemy { get; set; }
+
+        internal static IntPtr AlchemyFunc1 { get; set; }
+        internal static IntPtr AlchemyFunc2 { get; set; }
     }
 }

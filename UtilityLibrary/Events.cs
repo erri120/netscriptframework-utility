@@ -20,5 +20,10 @@ namespace UtilityLibrary
         /// Event is raised when disenchanting items
         /// </summary>
         public static Event<DisenchantingEventArgs> OnDisenchanting { get; internal set; }
+
+        /// <summary>
+        /// Event is raised when creating potions
+        /// </summary>
+        public static Event<AlchemyEventArgs> OnAlchemy { get; internal set; }
     }
 }
