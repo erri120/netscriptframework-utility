@@ -73,6 +73,6 @@ steps:
 - task: PublishBuildArtifacts@1
   condition: eq(variables['Build.SourceBranch'], 'refs/heads/master')
   inputs:
-    PathtoPublish: '$(Build.ArtifactStagingDirectory)/NuGet/UtilityLibrary'
+    PathtoPublish: '$(Build.ArtifactStagingDirectory)/NuGet/'
     ArtifactName: 'UtilityLibrary.NuGet'
     publishLocation: 'Container'
