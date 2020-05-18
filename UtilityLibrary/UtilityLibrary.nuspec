@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>erri120.UtilityLibrary</id>
+    <version>$version$</version>
+    <title>$title$</title>
+    <authors>$author$</authors>
+    <owners>$author$</owners>
+    <license type="expression">LGPL-3.0-only</license>
+    <projectUrl>https://github.com/erri120/netscriptframework-utility</projectUrl>
+    <repository type="git" url="https://github.com/erri120/netscriptframework-utility.git"/>
+    <requireLicenseAcceptance>true</requireLicenseAcceptance>
+    <description>$description$</description>
+    <copyright>Copyright erri120 2020</copyright>
+    <tags>Modding Skyrim NetScriptFramework</tags>
+  </metadata>
+</package>
