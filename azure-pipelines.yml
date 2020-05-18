@@ -42,7 +42,6 @@ steps:
     msbuildArgs: '/p:PreBuildEvent=;PostBuildEvent='
     platform: '$(buildPlatform)'
     configuration: '$(buildConfiguration)'
-    restoreNugetPackages: true
     msbuildArchitecture: 'x64'
 
 - task: CopyFiles@2
@@ -59,4 +58,21 @@ steps:
   inputs:
     PathtoPublish: '$(Build.ArtifactStagingDirectory)/UtilityLibrary'
     ArtifactName: 'UtilityLibrary'
+    publishLocation: 'Container'
+
+- task: NuGetCommand@2
+  condition: eq(variables['Build.SourceBranch'], 'refs/heads/master')
+  inputs:
+    command: 'pack'
+    packagesToPack: '**/UtilityLibrary.csproj'
+    packDestination: '$(Build.ArtifactStagingDirectory)/NuGet/'
+    versioningScheme: 'off'
+    includeSymbols: true
+    buildProperties: '-properties Platform=x64'
+
+- task: PublishBuildArtifacts@1
+  condition: eq(variables['Build.SourceBranch'], 'refs/heads/master')
+  inputs:
+    PathtoPublish: '$(Build.ArtifactStagingDirectory)/NuGet/UtilityLibrary'
+    ArtifactName: 'UtilityLibrary.NuGet'
     publishLocation: 'Container'
