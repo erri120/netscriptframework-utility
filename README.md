@@ -6,6 +6,9 @@ Utility Library for developing [.NET Script Framework](https://www.nexusmods.com
 
 * [Visual Studio 2019](https://visualstudio.microsoft.com/)
 * [.NET Script Framework](https://www.nexusmods.com/skyrimspecialedition/mods/21294)
+* [JetBrains.Annotations](https://www.nuget.org/packages/JetBrains.Annotations/) (optional)
+
+The [JetBrains.Annotations](https://www.nuget.org/packages/JetBrains.Annotations/) package is used mostly for the `[NotNull]` attribute because NetScriptFramework is still on .NET Framework 4.x and does not use C# 8.0 that has the new nullable feature. Null checking in the NetScriptFramework is important and this library will not null check most inputs. So when using a function from this library make sure to null check beforehand.
 
 ## Using the Library
 
