@@ -63,11 +63,11 @@ namespace UtilityLibrary
         /// </summary>
         public static IntPtr GetSoulTypeFunc { get; internal set; }
 
-        public static IntPtr SmithingTempering { get; internal set; }
-        public static IntPtr SmithingCrafting { get; internal set; }
-        public static IntPtr Enchanting { get; internal set; }
-        public static IntPtr Disenchanting { get; internal set; }
-        public static IntPtr GetDisenchantmentValue { get; internal set; }
-        public static IntPtr Alchemy { get; internal set; }
+        internal static IntPtr SmithingTempering { get; set; }
+        internal static IntPtr SmithingCrafting { get; set; }
+        internal static IntPtr Enchanting { get; set; }
+        internal static IntPtr Disenchanting { get; set; }
+        internal static IntPtr GetDisenchantmentValue { get; set; }
+        internal static IntPtr Alchemy { get; set; }
     }
 }

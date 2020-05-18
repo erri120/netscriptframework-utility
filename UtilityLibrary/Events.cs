@@ -9,7 +9,7 @@ namespace UtilityLibrary
         /// </summary>
         public static Event<TemperingEventArgs> OnTempering { get; internal set; }
 
-        public static Event<CraftingEventArgs> OnCrafting { get; internal set; }
+        //public static Event<CraftingEventArgs> OnCrafting { get; internal set; }
 
         public static Event<EnchantingEventArgs> OnEnchanting { get; internal set; }
 
