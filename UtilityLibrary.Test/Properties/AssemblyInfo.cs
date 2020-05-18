@@ -5,12 +5,12 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("UtilityLibrary.Test")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyTitle("UtilityLibrary.Example")]
+[assembly: AssemblyDescription("Exmaple plugin for Utility Library")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("UtilityLibrary.Test")]
-[assembly: AssemblyCopyright("Copyright ©  2020")]
+[assembly: AssemblyCompany("erri120")]
+[assembly: AssemblyProduct("UtilityLibrary.Example")]
+[assembly: AssemblyCopyright("Copyright © erri120 2020")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 

@@ -7,8 +7,8 @@
     <ProjectGuid>{C41E4E5E-AB08-4813-8185-9C6536746443}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>UtilityLibrary.Test</RootNamespace>
-    <AssemblyName>UtilityLibrary.Test</AssemblyName>
+    <RootNamespace>UtilityLibrary.Example</RootNamespace>
+    <AssemblyName>UtilityLibrary.Example</AssemblyName>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>

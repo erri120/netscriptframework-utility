@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using NetScriptFramework.Tools;
 
-namespace UtilityLibrary.Test
+namespace UtilityLibrary.Example
 {
     internal static class Utils
     {

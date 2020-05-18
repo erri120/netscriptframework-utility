@@ -1,9 +1,9 @@
-﻿namespace UtilityLibrary.Test
+﻿namespace UtilityLibrary.Example
 {
     public class Plugin : NetScriptFramework.Plugin
     {
-        public override string Key => "utility.library.test";
-        public static string PluginName => "Utility Library (TEST)";
+        public override string Key => "utility.library.example";
+        public static string PluginName => "Utility Library (EXAMPLE)";
         public override string Name => PluginName;
         public override int Version => 1;
 
