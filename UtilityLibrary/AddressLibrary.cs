@@ -63,11 +63,39 @@ namespace UtilityLibrary
         /// </summary>
         public static IntPtr GetSoulTypeFunc { get; internal set; }
 
+        /// <summary>
+        /// Address for <see cref="Events.OnTempering"/>
+        /// </summary>
         internal static IntPtr SmithingTempering { get; set; }
+
+        /// <summary>
+        /// Address for <c>Events.OnCrafting</c>
+        /// </summary>
         internal static IntPtr SmithingCrafting { get; set; }
+
+        /// <summary>
+        /// Address for <see cref="Events.OnEnchanting"/>
+        /// </summary>
         internal static IntPtr Enchanting { get; set; }
+
+        /// <summary>
+        /// Address for <see cref="Events.OnDisenchanting"/>
+        /// </summary>
         internal static IntPtr Disenchanting { get; set; }
+
+        /// <summary>
+        /// <para>Use <see cref="Memory.InvokeCdeclF"/></para>
+        ///
+        /// <para>
+        /// Used in <see cref="Events.OnDisenchanting"/> to get the
+        /// disenchantment value. Arguments are <see cref="CPURegisters.SI"/> and <c>0</c>.
+        /// </para>
+        /// </summary>
         internal static IntPtr GetDisenchantmentValue { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
         internal static IntPtr Alchemy { get; set; }
     }
 }

@@ -7,8 +7,19 @@ namespace UtilityLibrary
     {
         public class EnchantingEventArgs : HookedEventArgs
         {
+            /// <summary>
+            /// The item to be enchanted
+            /// </summary>
             public TESForm Item { get; internal set; }
+
+            /// <summary>
+            /// The soul gem used
+            /// </summary>
             public TESForm SoulGem { get; internal set; }
+
+            /// <summary>
+            /// XP gained from enchanting
+            /// </summary>
             public float XP { get; set; }
         }
 

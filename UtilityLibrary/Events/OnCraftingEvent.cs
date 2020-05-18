@@ -7,7 +7,14 @@ namespace UtilityLibrary
     {
         public class CraftingEventArgs : HookedEventArgs
         {
+            /// <summary>
+            /// The item to be constructed
+            /// </summary>
             public BGSConstructibleObject TemperForm { get; set; }
+
+            /// <summary>
+            /// The XP to be gained
+            /// </summary>
             public float XP { get; set; }
         }
 

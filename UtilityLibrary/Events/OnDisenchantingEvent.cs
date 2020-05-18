@@ -8,9 +8,24 @@ namespace UtilityLibrary
     {
         public class DisenchantingEventArgs : HookedEventArgs
         {
+            /// <summary>
+            /// The item to be disenchanted
+            /// </summary>
             public TESForm Item { get; internal set; }
+
+            /// <summary>
+            /// The enchantment to be learned
+            /// </summary>
             public IntPtr Enchantment { get; internal set; }
+            
+            /// <summary>
+            /// The enchantment value
+            /// </summary>
             public float EnchantmentValue { get; internal set; }
+
+            /// <summary>
+            /// The XP to be gained
+            /// </summary>
             public float XP { get; set; }
         }
 
