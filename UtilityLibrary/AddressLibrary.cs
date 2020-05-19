@@ -82,6 +82,35 @@ namespace UtilityLibrary
         /// </summary>
         public static IntPtr PlaySoundFunc { get; internal set; }
 
+        /// <summary>
+        /// <para>Use <see cref="Memory.InvokeCdecl"/></para>
+        ///
+        /// <para>
+        /// This function will take you to the main menu.
+        /// </para>
+        /// </summary>
+        public static IntPtr QuitToMainMenu { get; internal set; }
+
+        //public static IntPtr ToggleFlyCam { get; internal set; }
+
+        /// <summary>
+        /// <para>Use <see cref="Memory.InvokeCdecl"/></para>
+        ///
+        /// <para>
+        /// Console function tgm
+        /// </para>
+        /// </summary>
+        public static IntPtr ToggleGodMode { get; internal set; }
+
+        /// <summary>
+        /// <para>Use <see cref="Memory.InvokeCdecl"/></para>
+        ///
+        /// <para>
+        /// Console function tm
+        /// </para>
+        /// </summary>
+        public static IntPtr ToggleMenus { get; internal set; }
+
         #endregion
 
         #region Events

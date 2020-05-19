@@ -18,23 +18,41 @@ namespace UtilityLibrary
 
         protected override bool Initialize(bool loadedAny)
         {
-            //functions addresses
-            AddressLibrary.GetEnchantmentFunc = Main.GameInfo.GetAddressOf(14411);
-            AddressLibrary.GetCurrentGameTimeFunc = Main.GameInfo.GetAddressOf(56475);
-            AddressLibrary.GetRealHoursPassedFunc = Main.GameInfo.GetAddressOf(54842);
-            AddressLibrary.GetSoulTypeFunc = Main.GameInfo.GetAddressOf(11561);
+            #region Function Addressess
+
+            //MagicItem
             AddressLibrary.GetDisenchantmentValue = Main.GameInfo.GetAddressOf(11213);
+            //BSExtraDataList
+            AddressLibrary.GetSoulTypeFunc = Main.GameInfo.GetAddressOf(11561);
+            //TESForm
+            AddressLibrary.GetEnchantmentFunc = Main.GameInfo.GetAddressOf(14411);
+            //ConsoleFunc::handler
+            //AddressLibrary.ToggleFlyCam = Main.GameInfo.GetAddressOf(22436);
+            AddressLibrary.ToggleGodMode = Main.GameInfo.GetAddressOf(22339);
+            AddressLibrary.ToggleMenus = Main.GameInfo.GetAddressOf(22347);
+            //papyrus::utility
+            AddressLibrary.GetCurrentGameTimeFunc = Main.GameInfo.GetAddressOf(56475);
+            //papyrus::Game
+            AddressLibrary.GetRealHoursPassedFunc = Main.GameInfo.GetAddressOf(54842);
+            AddressLibrary.QuitToMainMenu = Main.GameInfo.GetAddressOf(54857);
+            //unk
             AddressLibrary.AlchemyFunc1 = Main.GameInfo.GetAddressOf(50424);
             AddressLibrary.AlchemyFunc2 = Main.GameInfo.GetAddressOf(50463);
             AddressLibrary.PlaySoundFunc = Main.GameInfo.GetAddressOf(52054);
 
-            //events addresses
+            #endregion
+
+            #region Event Addresses
+
+            //event addresses
             AddressLibrary.SmithingTempering = Main.GameInfo.GetAddressOf(50477, 0x115, 0, "FF 90 B8 07 00 00");
             //AddressLibrary.SmithingCrafting = Main.GameInfo.GetAddressOf(50476, 0x91, 0, "FF 90 B8 07 00 00");
             AddressLibrary.Enchanting = Main.GameInfo.GetAddressOf(50450, 0x275, 0, "FF 90 B8 07 00 00");
             AddressLibrary.Disenchanting = Main.GameInfo.GetAddressOf(50459, 0xBA, 0, "FF 90 B8 07 00 00");
             AddressLibrary.Alchemy = Main.GameInfo.GetAddressOf(50449, 0x207, 0, "FF 90 B8 07 00 00");
             AddressLibrary.ApplyPoison = Main.GameInfo.GetAddressOf(39406, 0x89, 0, "E8 ? ? ? ? 48 85 C0");
+
+            #endregion
 
             //events
             Events.OnTempering = new EventHook<Events.TemperingEventArgs>(EventHookFlags.None, "utility-library.events.tempering", Events.TemperingEventHookParameters);

@@ -73,5 +73,21 @@ namespace UtilityLibrary
         {
             Memory.InvokeCdecl(AddressLibrary.PlaySoundFunc, sound);
         }
+
+        /// <summary>
+        /// This will toggle god mode for the player, same as the <c>tgm</c> console command.
+        /// </summary>
+        public static void ToggleGodMode()
+        {
+            Memory.InvokeCdecl(AddressLibrary.ToggleGodMode);
+        }
+
+        /// <summary>
+        /// This will toggle the menus, same as the <c>tm</c> console command.
+        /// </summary>
+        public static void ToggleMenus()
+        {
+            Memory.InvokeCdecl(AddressLibrary.ToggleMenus);
+        }
     }
 }
