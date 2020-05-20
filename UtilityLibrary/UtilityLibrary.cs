@@ -31,6 +31,17 @@ namespace UtilityLibrary
         }
 
         /// <summary>
+        /// Utility function to get the byte pattern in hex format at a given address
+        /// </summary>
+        /// <param name="address">The Address</param>
+        /// <param name="length">Length of the pattern</param>
+        /// <returns></returns>
+        public static string GetPattern(this IntPtr address, int length = 8)
+        {
+            return GetPatternAtAddress(address);
+        }
+
+        /// <summary>
         /// Whether or not the game is in the main menu
         /// </summary>
         public static bool IsInMainMenu { get; internal set; }
