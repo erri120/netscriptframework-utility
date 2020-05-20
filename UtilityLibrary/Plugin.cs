@@ -50,7 +50,7 @@ namespace UtilityLibrary
             AddressLibrary.Enchanting = Main.GameInfo.GetAddressOf(50450, 0x275, 0, "FF 90 B8 07 00 00");
             AddressLibrary.Disenchanting = Main.GameInfo.GetAddressOf(50459, 0xBA, 0, "FF 90 B8 07 00 00");
             AddressLibrary.Alchemy = Main.GameInfo.GetAddressOf(50449, 0x207, 0, "FF 90 B8 07 00 00");
-            AddressLibrary.ApplyPoison = Main.GameInfo.GetAddressOf(39406, 0x89, 0, "E8 ? ? ? ? 48 85 C0");
+            AddressLibrary.ApplyPoison = Main.GameInfo.GetAddressOf(39406, 0x89, 0, "E8 72 4C B3 FF 48 85 C0");
 
             #endregion
 

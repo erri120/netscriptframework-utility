@@ -17,7 +17,7 @@ namespace UtilityLibrary
         }
 
         internal static EventHookParameters<ApplyPoisonEventArgs> ApplyPoisonEventHookParameters =>
-            new EventHookParameters<ApplyPoisonEventArgs>(AddressLibrary.ApplyPoison, 0x13, 0, "E8 ? ? ? ? 48 85 C0",
+            new EventHookParameters<ApplyPoisonEventArgs>(AddressLibrary.ApplyPoison, 0x13, 0, "E8 72 4C B3 FF 48 85 C0",
                 ctx =>
                 {
                     var args = new ApplyPoisonEventArgs();

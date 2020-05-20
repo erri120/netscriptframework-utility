@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using NetScriptFramework;
 using NetScriptFramework.SkyrimSE;
 using Main = NetScriptFramework.SkyrimSE.Main;
@@ -10,6 +11,25 @@ namespace UtilityLibrary
     /// </summary>
     public static partial class UtilityLibrary
     {
+        /// <summary>
+        /// Utility function to get the byte pattern in hex format at a given address
+        /// </summary>
+        /// <param name="address">The Address</param>
+        /// <param name="length">Length of the pattern</param>
+        /// <returns></returns>
+        public static string GetPatternAtAddress(IntPtr address, int length = 8)
+        {
+            var result = "";
+
+            byte[] bytes = Memory.ReadBytes(address, length);
+            if (bytes == null || bytes.Length == 0 || bytes.Length != length)
+                return result;
+
+            result = string.Concat(bytes.Select(x => x.ToString("X2")));
+
+            return result;
+        }
+
         /// <summary>
         /// Whether or not the game is in the main menu
         /// </summary>
