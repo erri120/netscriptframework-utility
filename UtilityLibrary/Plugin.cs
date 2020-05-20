@@ -45,6 +45,7 @@ namespace UtilityLibrary
             #region Event Addresses
 
             //event addresses
+            AddressLibrary.SaveInternal = Main.GameInfo.GetAddressOf(34818, 0, 0, "44 89 44 24 18 55 56 57");
             AddressLibrary.SmithingTempering = Main.GameInfo.GetAddressOf(50477, 0x115, 0, "FF 90 B8 07 00 00");
             //AddressLibrary.SmithingCrafting = Main.GameInfo.GetAddressOf(50476, 0x91, 0, "FF 90 B8 07 00 00");
             AddressLibrary.Enchanting = Main.GameInfo.GetAddressOf(50450, 0x275, 0, "FF 90 B8 07 00 00");
@@ -55,6 +56,7 @@ namespace UtilityLibrary
             #endregion
 
             //events
+            Events.OnSave = new EventHook<Events.SaveEventArgs>(EventHookFlags.None, "utility-library.events.save", Events.SaveEventHookParameters);
             Events.OnTempering = new EventHook<Events.TemperingEventArgs>(EventHookFlags.None, "utility-library.events.tempering", Events.TemperingEventHookParameters);
             //Events.OnCrafting = new EventHook<Events.CraftingEventArgs>(EventHookFlags.None, "utility-library.events.crafting", Events.CraftingEventHookParameters);
             Events.OnEnchanting = new EventHook<Events.EnchantingEventArgs>(EventHookFlags.None, "utility-library.events.enchanting", Events.EnchantingEventHookParameters);

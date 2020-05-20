@@ -1,6 +1,4 @@
-﻿using NetScriptFramework;
-using NetScriptFramework.SkyrimSE;
-using Main = NetScriptFramework.Main;
+﻿using Main = NetScriptFramework.Main;
 
 namespace UtilityLibrary.Example
 {
@@ -23,6 +21,11 @@ namespace UtilityLibrary.Example
             if (utilityLibrary == null) return false;
             if (!utilityLibrary.IsInitialized) return false;
             if (!loadedAny) return false;
+
+            Events.OnSave.Register(e =>
+            {
+                Utils.Log("On Save called!");
+            });
 
             Events.OnTempering.Register(e =>
             {

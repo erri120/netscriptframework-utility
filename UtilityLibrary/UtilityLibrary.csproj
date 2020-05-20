@@ -61,6 +61,7 @@
     <Compile Include="Events\OnCraftingEvent.cs" />
     <Compile Include="Events\OnDisenchantingEvent.cs" />
     <Compile Include="Events\OnEnchantingEvent.cs" />
+    <Compile Include="Events\OnSaveLoadEvent.cs" />
     <Compile Include="Events\OnTemperingEvent.cs" />
     <Compile Include="Plugin.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

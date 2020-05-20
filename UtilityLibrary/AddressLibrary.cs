@@ -116,6 +116,12 @@ namespace UtilityLibrary
         #region Events
 
         /// <summary>
+        /// Address for <see cref="Events.OnSave"/>
+        /// </summary>
+        internal static IntPtr SaveInternal { get; set; }
+        internal static IntPtr LoadInternal { get; set; }
+
+        /// <summary>
         /// Address for <see cref="Events.OnTempering"/>
         /// </summary>
         internal static IntPtr SmithingTempering { get; set; }
