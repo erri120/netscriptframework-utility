@@ -26,8 +26,7 @@ namespace UtilityLibrary.Example
 
             Events.OnTempering.Register(e =>
             {
-                Utils.Log(
-                    $"Tempering {e.Item.Name}, old quality: {e.OldQuality}, new quality: {e.NewQuality}, getting {e.XP} XP");
+                Utils.Log($"Tempering {e.Item.Name}, old quality: {e.OldQuality}, new quality: {e.NewQuality}, getting {e.XP} XP");
             });
 
             Events.OnEnchanting.Register(e =>
@@ -38,7 +37,7 @@ namespace UtilityLibrary.Example
             Events.OnDisenchanting.Register(e =>
             {
                 Utils.Log(
-                    $"Disenchanting {e.Item.Name}, enchantment: {e.Enchantment}, value: {e.EnchantmentValue} xp: {e.XP}");
+                    $"Disenchanting {e.Item.Name}, enchantment: {e.Enchantment.Name}, value: {e.EnchantmentValue} xp: {e.XP}");
             });
 
             Events.OnAlchemy.Register(e =>
@@ -52,7 +51,7 @@ namespace UtilityLibrary.Example
 
             Events.OnApplyPoison.Register(e =>
             {
-                Utils.Log($"Item: {e.ItemEntry.Template?.Name}");
+                Utils.Log($"Item: {e.ItemEntry.Template?.Name}, Poison: {e.Poison.Name}");
                 UtilityLibrary.PlaySound(Main.GameInfo.GetAddressOf(269252));
             });
 

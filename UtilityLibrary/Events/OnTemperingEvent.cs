@@ -54,6 +54,8 @@ namespace UtilityLibrary
                     args.TemperForm = MemoryObject.FromAddress<BGSConstructibleObject>(Memory.ReadPointer(ctx.BX + 0x10));
                     args.XP = ctx.XMM2f;
 
+                    //NetScriptFramework.Main.WriteNativeCrashLog(ctx, int.MinValue, "Data\\on-tempering-event.txt");
+
                     return args;
                 }, (ctx, args) =>
                 {

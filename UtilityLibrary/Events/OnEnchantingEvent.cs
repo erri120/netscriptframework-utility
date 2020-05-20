@@ -18,7 +18,7 @@ namespace UtilityLibrary
             /// <summary>
             /// The soul gem used
             /// </summary>
-            public TESForm SoulGem { get; internal set; }
+            public TESSoulGem SoulGem { get; internal set; }
 
             /// <summary>
             /// XP gained from enchanting
@@ -32,13 +32,18 @@ namespace UtilityLibrary
                 var args = new EnchantingEventArgs();
 
                 var item = MemoryObject.FromAddress<TESForm>(Memory.ReadPointer(ctx.R15));
-                var soulGem = MemoryObject.FromAddress<TESForm>(
+                /*var soulGem = MemoryObject.FromAddress<TESForm>(
                     Memory.ReadPointer(Memory.ReadPointer(ctx.BX + 0x18)));
+                    */
+                var soulGem = MemoryObject.FromAddress<TESSoulGem>(ctx.DI);
+
                 var xp = ctx.XMM2f;
 
                 args.Item = item;
                 args.SoulGem = soulGem;
                 args.XP = xp;
+
+                //NetScriptFramework.Main.WriteNativeCrashLog(ctx, int.MinValue, "Data\\on-enchanting-event.txt");
 
                 return args;
             }, (ctx, args) =>

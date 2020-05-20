@@ -14,6 +14,11 @@ namespace UtilityLibrary
             /// The weapon to be applied with poison
             /// </summary>
             public ExtraContainerChanges.ItemEntry ItemEntry { get; internal set; }
+
+            /// <summary>
+            /// The poison to be used
+            /// </summary>
+            public AlchemyItem Poison { get; internal set; }
         }
 
         internal static EventHookParameters<ApplyPoisonEventArgs> ApplyPoisonEventHookParameters =>
@@ -23,6 +28,20 @@ namespace UtilityLibrary
                     var args = new ApplyPoisonEventArgs();
                     var item = MemoryObject.FromAddress<ExtraContainerChanges.ItemEntry>(ctx.CX);
                     args.ItemEntry = item;
+
+                    var poison = MemoryObject.FromAddress<AlchemyItem>(ctx.BX);
+                    if (poison == null)
+                    {
+                        poison = MemoryObject.FromAddress<AlchemyItem>(Memory.ReadPointer(ctx.SP));
+                        if (poison == null)
+                        {
+                            poison = MemoryObject.FromAddress<AlchemyItem>(ctx.R14);
+                        }
+                    }
+
+                    args.Poison = poison;
+
+                    //NetScriptFramework.Main.WriteNativeCrashLog(ctx, int.MinValue, "Data\\on-applypoison-event.txt");
 
                     return args;
                 }, (registers, args) => { });

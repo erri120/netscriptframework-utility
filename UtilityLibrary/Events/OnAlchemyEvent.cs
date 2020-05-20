@@ -61,6 +61,8 @@ namespace UtilityLibrary
                 args.Potion = potion;
                 args.XP = xp;
 
+                //NetScriptFramework.Main.WriteNativeCrashLog(ctx, int.MinValue, "Data\\on-alchemy-event.txt");
+
                 return args;
             }, (ctx, args) =>
             {

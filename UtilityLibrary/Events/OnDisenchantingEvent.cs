@@ -19,7 +19,7 @@ namespace UtilityLibrary
             /// <summary>
             /// The enchantment to be learned
             /// </summary>
-            public IntPtr Enchantment { get; internal set; }
+            public EnchantmentItem Enchantment { get; internal set; }
             
             /// <summary>
             /// The enchantment value
@@ -39,15 +39,17 @@ namespace UtilityLibrary
                     var args = new DisenchantingEventArgs();
 
                     var item = MemoryObject.FromAddress<TESForm>(Memory.ReadPointer(ctx.R14));
-                    var enchantment = ctx.SI;
+                    var enchantment = MemoryObject.FromAddress<EnchantmentItem>(ctx.SI);
 
                     args.Item = item;
                     args.Enchantment = enchantment;
 
-                    var enchantmentValue = Memory.InvokeCdeclF(AddressLibrary.GetDisenchantmentValue, enchantment, 0);
+                    var enchantmentValue = Memory.InvokeCdeclF(AddressLibrary.GetDisenchantmentValue, ctx.SI, 0);
 
                     args.EnchantmentValue = enchantmentValue;
                     args.XP = ctx.XMM2f;
+
+                    //NetScriptFramework.Main.WriteNativeCrashLog(ctx, int.MinValue, "Data\\on-disenchanting-event.txt");
 
                     return args;
                 }, (ctx, args) =>
