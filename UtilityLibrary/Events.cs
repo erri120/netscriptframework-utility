@@ -7,7 +7,15 @@ namespace UtilityLibrary
     /// </summary>
     public static partial class Events
     {
+        /// <summary>
+        /// Events is raised when saving
+        /// </summary>
         public static Event<SaveEventArgs> OnSave { get; internal set; }
+
+        /// <summary>
+        /// Event is raised when loading
+        /// </summary>
+        public static Event<LoadEventArgs> OnLoad { get; internal set; }
 
         /// <summary>
         /// Event is raised when tempering Armor.

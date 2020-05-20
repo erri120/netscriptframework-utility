@@ -27,6 +27,11 @@ namespace UtilityLibrary.Example
                 Utils.Log("On Save called!");
             });
 
+            Events.OnLoad.Register(e =>
+            {
+                Utils.Log($"On Load called, loading save {e.SaveFile}!");
+            });
+
             Events.OnTempering.Register(e =>
             {
                 Utils.Log($"Tempering {e.Item.Name}, old quality: {e.OldQuality}, new quality: {e.NewQuality}, getting {e.XP} XP");

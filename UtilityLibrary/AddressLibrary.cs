@@ -119,6 +119,10 @@ namespace UtilityLibrary
         /// Address for <see cref="Events.OnSave"/>
         /// </summary>
         internal static IntPtr SaveInternal { get; set; }
+
+        /// <summary>
+        /// Address for <see cref="Events.OnLoad"/>
+        /// </summary>
         internal static IntPtr LoadInternal { get; set; }
 
         /// <summary>
