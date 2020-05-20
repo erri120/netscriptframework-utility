@@ -78,45 +78,14 @@ namespace UtilityLibrary
         }
 
         /// <summary>
-        /// Enum for the type of soul in a soul gem.
-        /// </summary>
-        public enum SoulType : byte
-        {
-            /// <summary>
-            /// None meaning no soul or something went wrong
-            /// </summary>
-            None = 0,
-            /// <summary>
-            /// Petty soul
-            /// </summary>
-            Petty = 1,
-            /// <summary>
-            /// Lesser soul
-            /// </summary>
-            Lesser = 2,
-            /// <summary>
-            /// Common soul
-            /// </summary>
-            Common = 3,
-            /// <summary>
-            /// Greater soul
-            /// </summary>
-            Greater = 4,
-            /// <summary>
-            /// Grand soul, also used in black soul gems
-            /// </summary>
-            Grand = 5
-        }
-
-        /// <summary>
-        /// Get the type of soul in a soul gem. Will return <see cref="SoulType.None"/>
+        /// Get the type of soul in a soul gem. Will return <see cref="SoulLevels.None"/>
         /// if there is no soul in the soul gem.
         /// </summary>
         /// <param name="itemEntry">The soul gem</param>
         /// <returns>The soul in the given soul gem</returns>
-        public static SoulType GetSoulType([NotNull] this ExtraContainerChanges.ItemEntry itemEntry)
+        public static SoulLevels GetSoulType([NotNull] this ExtraContainerChanges.ItemEntry itemEntry)
         {
-            SoulType result = 0;
+            SoulLevels result = 0;
 
             var item = itemEntry.Template;
             if (item == null)
@@ -134,7 +103,7 @@ namespace UtilityLibrary
 
             BSSimpleList<BSExtraDataList> extraData = itemEntry.ExtraData;
             if (extraData == null)
-                return (SoulType)baseSoul;
+                return (SoulLevels)baseSoul;
 
             extraData.Where(x => x != null).Do(x =>
             {
@@ -146,7 +115,7 @@ namespace UtilityLibrary
                 if (soul == 0)
                     soul = baseSoul;
 
-                result = (SoulType)soul;
+                result = (SoulLevels)soul;
             });
 
             return result;
