@@ -29,7 +29,7 @@ namespace UtilityLibrary.Example
 
             Events.OnLoad.Register(e =>
             {
-                Utils.Log($"On Load called, loading save {e.SaveFile}!");
+                Utils.Log($"On Load called");//, loading save {e.SaveFile}!");
             });
 
             Events.OnTempering.Register(e =>

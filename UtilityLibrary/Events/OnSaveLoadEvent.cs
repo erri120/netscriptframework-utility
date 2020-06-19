@@ -43,22 +43,22 @@ namespace UtilityLibrary
 
             });
 
-        internal static EventHookParameters<LoadEventArgs> LoadEventHookParameters => new EventHookParameters<LoadEventArgs>(AddressLibrary.LoadInternal, 5, 5, "48 8B C4 48 89 58 10 57",
+        internal static EventHookParameters<LoadEventArgs> LoadEventHookParameters => new EventHookParameters<LoadEventArgs>(AddressLibrary.LoadInternal, 5, 5, "EC60010000488BDA",
             ctx =>
             {
                 var args = new LoadEventArgs();
+                Utils.Log($"Load Called (before)");
+                //var saveLoadManager = MemoryObject.FromAddress<BGSSaveLoadManager>(ctx.CX);
+                //var saveFile = Memory.ReadString(ctx.DX, true);
 
-                var saveLoadManager = MemoryObject.FromAddress<BGSSaveLoadManager>(ctx.CX);
-                var saveFile = Memory.ReadString(ctx.DX, true);
-
-                args.SaveLoadManager = saveLoadManager;
-                args.SaveFile = saveFile;
+                //args.SaveLoadManager = saveLoadManager;
+                //args.SaveFile = saveFile;
 
                 NetScriptFramework.Main.WriteNativeCrashLog(ctx, int.MinValue, "Data\\on-load-event.txt");
                 return args;
             }, (ctx, args) =>
             {
-
+                Utils.Log($"Load Called (after)");
             });
     }
 }

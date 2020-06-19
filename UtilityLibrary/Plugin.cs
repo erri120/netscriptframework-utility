@@ -46,7 +46,8 @@ namespace UtilityLibrary
 
             //event addresses
             AddressLibrary.SaveInternal = Main.GameInfo.GetAddressOf(34818, 0, 0, "44 89 44 24 18 55 56 57");
-            AddressLibrary.LoadInternal = Main.GameInfo.GetAddressOf(34819, 0, 0, "48 8B C4 48 89 58 10 57");
+            AddressLibrary.LoadInternal = Main.GameInfo.GetAddressOf(34819, 0xA, 0, "EC60010000488BDA");
+            Utils.Log(AddressLibrary.LoadInternal.GetPattern());
 
             AddressLibrary.SmithingTempering = Main.GameInfo.GetAddressOf(50477, 0x115, 0, "FF 90 B8 07 00 00");
             //AddressLibrary.SmithingCrafting = Main.GameInfo.GetAddressOf(50476, 0x91, 0, "FF 90 B8 07 00 00");
