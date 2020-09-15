@@ -76,7 +76,7 @@
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
-    <PostBuildEvent>copy "$(TargetDir)$(TargetName)$(TargetExt)" "N:\MO2 for Mod Creation\mods\Utility Library\NetScriptFramework\Plugins"
-copy "$(TargetDir)$(TargetName).pdb" "N:\MO2 for Mod Creation\mods\Utility Library\NetScriptFramework\Plugins"</PostBuildEvent>
+    <!--<PostBuildEvent>copy "$(TargetDir)$(TargetName)$(TargetExt)" "N:\MO2 for Mod Creation\mods\Utility Library\NetScriptFramework\Plugins"
+copy "$(TargetDir)$(TargetName).pdb" "N:\MO2 for Mod Creation\mods\Utility Library\NetScriptFramework\Plugins"</PostBuildEvent>-->
   </PropertyGroup>
 </Project>
